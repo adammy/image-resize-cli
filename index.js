@@ -4,8 +4,11 @@ const settings = require('./settings.json');
 const getFiles = require('./src/getFiles');
 
 const { src, output, sizes, ext } = settings;
-
-// get all images specified in settings.src
 const files = getFiles(src);
 
-console.log(files);
+files.forEach(file => {
+	const path = ``;
+	sharp(`${src}${file.path}${file.name}${file.ext}`)
+		.resize(800, 500)
+		.toFile(`${output}${file.path}${file.name}_800x500${file.ext}`);
+});
