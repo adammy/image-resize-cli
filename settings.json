@@ -1,8 +1,8 @@
 {
 	"src": "test/src/",
-	"output": "test/build/",
+	"dest": "test/build/",
 	"sizes": [
-		[1000, 700],
+		[800, 500],
 		[400, 250]
 	],
 	"ext": "jpg"
