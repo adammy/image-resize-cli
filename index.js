@@ -2,7 +2,7 @@ const jimp = require('jimp');
 const colors = require('colors');
 const settings = require('./settings.json');
 const getFiles = require('./src/getFiles');
-const { src, dest, sizes, ext } = settings;
+const { src, dest, sizes } = settings;
 
 // get an array of all files to be modified
 const files = getFiles(src);
