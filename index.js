@@ -1,45 +1,15 @@
-const jimp = require('jimp');
-const colors = require('colors');
-const settings = require('./settings.json');
+#!/usr/bin/env node
+
+'use strict';
+
+// gather dependencies
+const program = require('commander');
 const getFiles = require('./src/getFiles');
-const { src, dest, sizes } = settings;
+const generateImages = require('./src/generateImages');
+const settings = require('./settings.json');
 
-// get an array of all files to be modified
-const files = getFiles(src);
+// get files
+const files = getFiles(settings.src, settings.src);
 
-// move through each file
-files.forEach(file => {
-
-	// gather the input var
-	const input = `${src}${file.path}${file.name}${file.ext}`;
-
-	// move through each requested size
-	sizes.forEach(size => {
-
-		// gather some reusable vars
-		const width = size[0];
-		const height = size[1];
-		const output = `${dest}${file.path}${file.name}_${width}x${height}${file.ext}`;
-
-		// read the image; returns a promise
-		jimp.read(input)
-
-			// if promise resolves
-			.then(img => {
-
-				// send messaging to user
-				console.log('Source: ' + input.green);
-				console.log('\tResized to ' + `${width}x${height}`.green);
-				console.log('\tBuilt file sent to ' + output.green + '\n');
-
-				// generate new image
-				return img.resize(width, height).write(output);
-
-			})
-
-			// if promise rejects
-			.catch(err => console.error(err.red + '\n'));
-
-	});
-
-});
+// generate images
+generateImages(files, settings);

@@ -1,18 +1,16 @@
 const fs = require('fs');
 const path = require('path');
-const colors = require('colors');
-const settings = require('./../settings.json');
 
 const filesToIgnore = ['.DS_Store', 'Thumbs.db'];
-const allowedExtensions = ['.jpg', '.png', ''];
-const originalSrc = settings.src;
+const allowedExtensions = ['.jpg', '.png'];
 
 /*
- * returns an array of objects
+ * returns an array of objects with file data
  * @param {String} src - the folder to traverse
+ * @param {String} originalSrc - the origin of this func call, when used recursively
  * @returns {Array}
  */
-const getFiles = (src) => {
+const getFiles = (src, originalSrc) => {
 
 	return fs.readdirSync(src)
 
@@ -28,7 +26,7 @@ const getFiles = (src) => {
 			const fileStats = fs.statSync(fullPath);
 
 			if (fileStats.isDirectory()) {
-				return getFiles(fullPath);
+				return getFiles(fullPath, originalSrc);
 			}
 
 			return {

@@ -28,6 +28,7 @@
   "homepage": "https://github.com/adammy/js-image-resize-cli#readme",
   "dependencies": {
     "colors": "^1.2.1",
+    "commander": "^2.15.1",
     "jimp": "^0.2.28"
   }
 }
