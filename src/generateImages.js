@@ -32,12 +32,12 @@ const generateImages = (files, settings) => {
 				.then(img => {
 
 					// send messaging to user
-					console.log('Source: ' + input.green);
-					console.log('\tResized to ' + `${width}x${height}`.green);
-					console.log('\tBuilt file sent to ' + output.green + '\n');
+					console.log('Source file ' + input.green);
+					console.log('Resized to ' + `${width}x${height}`.green);
+					console.log('Built file sent to ' + output.green + '\n');
 
 					// generate new image
-					return img.resize(width, height).write(output);
+					return img.cover(width, height).write(output);
 
 				})
 
