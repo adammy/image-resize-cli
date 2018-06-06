@@ -1,5 +1,5 @@
 {
-  "name": "js-image-resize-cli",
+  "name": "img-resizer",
   "version": "1.0.0",
   "description": "A command-line interface for resizing images.",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adammy/js-image-resize-cli.git"
+    "url": "git+https://github.com/adammy/img-resizer.git"
   },
   "keywords": [
     "image",
@@ -23,9 +23,9 @@
   "author": "Adam MacDonald-Corrao <adammacdonaldcorrao@gmail.com> (http://adammy.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/adammy/js-image-resize-cli/issues"
+    "url": "https://github.com/adammy/img-resizer/issues"
   },
-  "homepage": "https://github.com/adammy/js-image-resize-cli#readme",
+  "homepage": "https://github.com/adammy/img-resizer#readme",
   "dependencies": {
     "colors": "^1.2.1",
     "commander": "^2.15.1",
